@@ -1,4 +1,4 @@
-{% set version = '2013.8.7' %}
+{% set version = '2018-7.10' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,44 +7,28 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: optimx_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/optimx_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/optimx/optimx_{{ version }}.tar.gz
-  sha256: 1a8c16f327be5af4b938c4ce71f9fe1c7704800b355412af2542ea28803e6d5d
+  sha256: 13ba662dbe7e1c58b53e917cfecaaa0772a57dcdef8444fc8ce20e3fcb7aff5a
 
 build:
-  noarch: generic
   merge_build_host: True  # [win]
-  number: 1001
+  number: 0
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
   host:
     - r-base
-    - r-bb
-    - r-rcgmin
-    - r-rvmmin
-    - r-dfoptim
-    - r-minqa
     - r-numderiv
-    - r-setrng
-    - r-svunit
-    - r-ucminf
   run:
     - r-base
-    - r-bb
-    - r-rcgmin
-    - r-rvmmin
-    - r-dfoptim
-    - r-minqa
     - r-numderiv
-    - r-setrng
-    - r-svunit
-    - r-ucminf
 
 test:
   commands:
@@ -54,17 +38,33 @@ test:
 about:
   home: https://CRAN.R-project.org/package=optimx
   license: GPL-2
-  summary: Provides a replacement and extension of the optim() function to unify and streamline
-    optimization capabilities in R for smooth, possibly box constrained functions of
-    several or many parameters. This is the CRAN version of the package.
+  summary: Provides a replacement and extension of the optim() function to call to several function
+    minimization codes in R in a single statement. These methods handle smooth, possibly
+    box constrained functions  of several or many parameters. Note that function 'optimr()'
+    was prepared to simplify the incorporation of minimization codes going forward.
+    Also implements some utility codes and some extra solvers, including safeguarded
+    Newton methods. Many methods previously separate are now included here.
   license_family: GPL2
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+    - conda-forge/r
+
+# Package: optimx
+# Version: 2018-7.10
+# Date: 2018-07-10
+# Title: Expanded Replacement and Extension of the 'optim' Function
+# Authors@R: c( person(given = c("John", "C"), family = "Nash", role = c("aut", "cre"), email = "nashjc@uottawa.ca"), person(given = "Ravi", family = "Varadhan", role = "aut", email = "RVaradhan@jhmi.edu"), person(given = "Gabor", family = "Grothendieck", role = "ctb", email = "ggrothendieck@gmail.com") )
+# Author: John C Nash [aut, cre], Ravi Varadhan [aut], Gabor Grothendieck [ctb]
+# Maintainer: John C Nash <nashjc@uottawa.ca>
+# Description: Provides a replacement and extension of the optim() function to call to several function minimization codes in R in a single statement. These methods handle smooth, possibly box constrained functions  of several or many parameters. Note that function 'optimr()' was prepared to simplify the incorporation of minimization codes going forward. Also implements some utility codes and some extra solvers, including safeguarded Newton methods. Many methods previously separate are now included here.
+# License: GPL-2
+# LazyLoad: Yes
+# Imports: numDeriv
+# NeedsCompilation: no
+# Suggests: knitr, rmarkdown, setRNG, BB, ucminf, minqa, dfoptim, lbfgsb3, lbfgs, subplex
+# VignetteBuilder: knitr
+# Packaged: 2018-07-10 16:08:14 UTC; john
+# Repository: CRAN
+# Date/Publication: 2018-09-30 14:50:05 UTC
