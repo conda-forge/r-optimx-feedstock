@@ -1,4 +1,4 @@
-{% set version = "2021-6.12" %}
+{% set version = "2021-10.12" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/optimx_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/optimx/optimx_{{ version }}.tar.gz
-  sha256: 7360e85e6261dfdf4ba6dd8df23618813bc167b06ccda4a32df38a4b4c693515
+  sha256: 39384c856b5efa3992cd230548b60eff936d428111ad6ad5b8fb98a3bcbb7943
 
 build:
   merge_build_host: true  # [win]
