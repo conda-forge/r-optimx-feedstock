@@ -1,11 +1,11 @@
-About r-optimx
-==============
+About r-optimx-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-optimx-feedstock/blob/main/LICENSE.txt)
 
 Home: https://CRAN.R-project.org/package=optimx
 
 Package license: GPL-2.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-optimx-feedstock/blob/main/LICENSE.txt)
 
 Summary: Provides a replacement and extension of the optim() function to call to several function minimization codes in R in a single statement. These methods handle smooth, possibly box constrained functions  of several or many parameters. Note that function 'optimr()' was prepared to simplify the incorporation of minimization codes going forward. Also implements some utility codes and some extra solvers, including safeguarded Newton methods. Many methods previously separate are now included here.
 
