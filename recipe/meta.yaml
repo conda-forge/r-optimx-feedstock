@@ -1,4 +1,4 @@
-{% set version = "2024-12.2" %}
+{% set version = "2025-4.9" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/optimx_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/optimx/optimx_{{ version }}.tar.gz
-  sha256: b2a5dda261ba556da34223add599ea38044174fe311c5751ebaefe0817ba2a2f
+  sha256: 10b68ab371e3f29fd0c2f4c3b8569ce1f10a99a6bef84a7c4161431c631d1854
 
 build:
   number: 0
